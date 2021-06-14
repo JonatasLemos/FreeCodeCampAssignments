@@ -1,4 +1,4 @@
 # FreeCodeCampProjects
-## PT:Projetos para completar o curso Scientific Computing with Python
-## EN:Projects to complete course Scientific Computing with Python
+## PT:Projetos para completar o curso <i>Scientific Computing with Python</i>
+## EN:Projects to complete the course <i>Scientific Computing with Python</i>
 
