@@ -22,12 +22,8 @@ def arithmetic_arranger(problems, solve=False):
         dashes += (max_length + 2) * "-" + end[i]
         result += str(eval(problems[i])).rjust(max_length + 2) + end[i]
 
-    string += top + "\n" + bottom + "\n" + dashes + "\n"
+    string += top + "\n" + bottom + "\n" + dashes
     if solve:
-        string += result + "\n"
+        string += "\n" + result
 
     return string
-
-# Calling Function
-print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
-print(arithmetic_arranger(["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"], True))

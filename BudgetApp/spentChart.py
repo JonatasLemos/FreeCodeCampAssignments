@@ -1,4 +1,4 @@
-def create_spent_chart(categories):
+def create_spend_chart(categories):
     category_values, len_names, names = [], [], []
     for object in categories:
         category_values.append(object.lost_money)

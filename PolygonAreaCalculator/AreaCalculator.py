@@ -6,7 +6,7 @@ class Rectangle:
         self.rect_string = "Rectangle Perimeter"
 
     def __str__(self):
-        return f'Rectangle(width={self.width},height={self.height})'
+        return f'Rectangle(width={self.width}, height={self.height})'
 
     def set_width(self, new_width):
         self.width = new_width

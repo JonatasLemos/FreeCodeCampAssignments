@@ -1,4 +1,4 @@
-from spentChart import create_spent_chart
+from FreeCodeCampProjects.BudgetApp import spentChart
 class Category:
 
     def __init__(self, name):
@@ -11,7 +11,7 @@ class Category:
         self.__append_ledger(amount,description)
 
     def withdraw(self, amount, description="",transfer=False):
-        if self.__check_funds(amount):
+        if self.check_funds(amount):
             self.__append_ledger(-amount,description)
             if not transfer:
                 self.__lost_money += amount
@@ -19,7 +19,7 @@ class Category:
         return False
 
     def transfer(self, amount, category):
-        if self.__check_funds(amount):
+        if self.check_funds(amount):
             category.deposit(amount, f"Transfer from {self.name}")
             self.withdraw(amount, f"Transfer to {category.name}",True)
             return True
@@ -29,8 +29,12 @@ class Category:
         self.__ledger.append({"amount": amount, "description": description})
         self.__balance += amount
 
-    def __check_funds(self, amount):
-        return amount < self.__balance
+    def check_funds(self, amount):
+        return amount <= self.__balance
+
+    @property
+    def ledger(self):
+        return self.__ledger
 
     @property
     def balance(self):
@@ -55,22 +59,3 @@ class Category:
         total = format(self.__balance, ".2f")
         text = category_name + "\n" + values + "Total: " + total
         return text
-
-# Creating objects amd calling create_spend_chart function
-food = Category("Food")
-entertainment = Category("Entertainment")
-business = Category("Business")
-food.deposit(1000, "initial deposit")
-business.deposit(2560,"initial deposit")
-business.withdraw(100,"equipments")
-entertainment.deposit(900, "initial deposit")
-food.withdraw(45.67, "milk, cereal, eggs")
-food.transfer(20, entertainment)
-entertainment.withdraw(45.67, "show")
-entertainment.transfer(20, business)
-
-# Printing ledger
-print(food)
-
-# Printing spend
-print(create_spent_chart([business,entertainment,food]))

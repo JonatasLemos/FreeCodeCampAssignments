@@ -31,7 +31,3 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
                 successful_experiment += 1
                 break
     return successful_experiment / num_experiments
-
-hat = Hat(yellow=3, blue=2, red=4)
-expected_balls = {"blue": 2, "red": 1}
-print(experiment(hat, expected_balls, 4, 100000))
